@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma para anuncio de oferta de empregos">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+    <title>EmpregosOn</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">EmpregosOn</h1>
+        <nav class="nav-container">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/">Sobre Nós</a>
+            <a class="nav-link" href="/">Ver Ofertas</a>
+        </nav>
+        <ul class="list-header">
+            <li><a class="list-header-link" href="/">Entrar</a></li>
+            <li><a class="list-header-link" href="/">Cadastrar</a></li>
+        </ul>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="footer">
+        <p>Todos os direitos reservados @{% now 'Y' %} JobsOn</p>
+    </footer>
+</body>
+</html>

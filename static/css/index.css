@@ -1,0 +1,44 @@
+body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+}
+
+header {
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  gap: 30px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: start;
+  gap: 30px;
+}
+
+.title {
+    color: white;
+}
+
+.nav-link, .list-header-link {
+    text-decoration: none;
+    color: white;
+}
+
+.list-header {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.footer {
+    background-color: grey;
+    margin-top: auto;
+    text-align: center;
+}
