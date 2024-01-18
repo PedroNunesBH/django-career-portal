@@ -2,13 +2,25 @@
 
 {% block styles %}
     {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/job_list.css' %}">
 {% endblock %}
 
 {% block content %}
     <main>
-        <h2>Todas as Ofertas</h2>
-        <section>
-            <h3></h3>
+        <h2 class="title-offer-page">Todas as Ofertas</h2>
+        <section class="section-content">
+        {% for offer in object_list %}
+            <div class="offer-grid">
+                <h3 class="offer-title">{{ offer.title }}</h3>
+                <p class="p-offer">{{ offer.organization_name }}</p>
+                <p class="p-offer">{{ offer.salary }}</p>
+                <p class="p-offer"> {{ offer.location }}</p>
+                <p class="p-offer"> {{ offer.publication_date }}</p>
+                <p class="p-description"> {{ offer.description }}</p>
+                <a class="btn-apply" href="/">Quero me candidatar</a>
+            </div>
+        {% endfor %}
         </section>
     </main>
 {% endblock %}

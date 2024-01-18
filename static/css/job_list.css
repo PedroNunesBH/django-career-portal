@@ -1,0 +1,46 @@
+body {
+    background-color: white;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(191, 190, 189);
+    width: 700px;
+}
+
+.offer-title {
+    color: blue;
+    margin-left: 10px;
+}
+
+.title-offer-page {
+    text-align: center;
+}
+
+.p-offer {
+    margin: 3px;
+}
+
+.p-description {
+    margin-left: 10px;
+}
+
+.section-content {
+    display: grid;
+    margin: 50px;
+    gap: 20px;
+    background-color: white;
+    justify-content: center;
+}
+
+.btn-apply {
+    color: white;
+    text-decoration: none;
+    background-color: rgb(158, 0, 63);
+    width: 156px;
+    padding: 10px;
+    margin: 15px;
+}
