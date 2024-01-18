@@ -1,0 +1,21 @@
+.label-register-form {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.title-register {
+    text-align: center;
+}
+
+.register-form {
+    margin-left: 600px;
+}
+
+.btn-register-form {
+    display: block;
+    margin-top: 20px;
+}
+
+form input {
+    margin-bottom: 30px;
+}

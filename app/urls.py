@@ -19,10 +19,11 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from jobs.views import JobOffersList
-from accounts.views import UserRegister
+from accounts.views import UserRegisterView, login_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('job_list/', JobOffersList.as_view(), name='job_list'),
-    path('register/', UserRegister.as_view(), name='register'),
+    path('register/', UserRegisterView.as_view(), name='register'),
+    path('login/', login_view, name='login'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
