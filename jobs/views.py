@@ -11,10 +11,8 @@ class JobOffersList(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        search = self.request.GET.get('query')
-        if search:
-            queryset = queryset.filter(title__icontains=search)
-            return queryset
+        search = self.request.GET.get('search', '')
+        queryset = queryset.filter(title__icontains=search)
         return queryset
 
 

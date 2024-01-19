@@ -53,3 +53,8 @@ body {
 #query-offer {
     font-size: 1.3rem;
 }
+
+.job-list-advice-null {
+    text-align: center;
+    font-weight: 600;
+}
