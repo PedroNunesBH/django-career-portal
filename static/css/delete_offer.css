@@ -1,0 +1,22 @@
+.title-delete-offer {
+    text-align: center;
+}
+
+.p1-delete-offer {
+    text-align: center;
+}
+
+.container-delete-offer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-delete-offer {
+    color: white;
+    background-color: red;
+    font-size: 1.2rem;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 10px;
+}

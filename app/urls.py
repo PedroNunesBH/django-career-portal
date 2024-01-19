@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from jobs.views import JobOffersList, CreateOfferView, EditOffer, DetailOffer
+from jobs.views import JobOffersList, CreateOfferView, EditOffer, DetailOffer, DeleteOffer
 from accounts.views import UserRegisterView, login_view, logoutview
 
 urlpatterns = [
@@ -30,4 +30,5 @@ urlpatterns = [
     path('logout/', logoutview, name='logout'),
     path('update_offer/<int:pk>', EditOffer.as_view(), name='update_offer'),
     path('detail_offer/<int:pk>', DetailOffer.as_view(), name='detail_offer'),
+    path('delete_offer/<int:pk>', DeleteOffer.as_view(), name='delete_offer'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

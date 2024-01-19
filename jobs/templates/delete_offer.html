@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/delete_offer.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <h2 class="title-delete-offer">Deletar Oferta</h2>
+        <p class="p1-delete-offer">Voce tem certeza que deseja deletar a oferta de emprego <strong>{{ object.title }}</strong> de
+            <strong>{{ object.organization_name }}</strong>?</p>
+        <section class="container-delete-offer">
+            <form class="" method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <button class="btn-delete-offer">Deletar</button>
+            </form>
+        </section>
+    </main>
+{% endblock %}

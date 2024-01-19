@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DetailView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from .models import JobOffer
 from .forms import CreateOfferJob
 from django.urls import reverse_lazy
@@ -45,3 +45,9 @@ class DetailOffer(DetailView):
         context = super().get_context_data()
         context['offer'] = context['object']
         return context
+
+
+class DeleteOffer(DeleteView):
+    template_name = 'delete_offer.html'
+    model = JobOffer
+    success_url = reverse_lazy('job_list')
