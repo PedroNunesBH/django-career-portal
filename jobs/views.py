@@ -3,6 +3,8 @@ from django.views.generic import ListView, CreateView
 from .models import JobOffer
 from .forms import CreateOfferJob
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 
 class JobOffersList(ListView):
@@ -16,6 +18,7 @@ class JobOffersList(ListView):
         return queryset
 
 
+@method_decorator(login_required(), name='dispatch')
 class CreateOfferView(CreateView):
     template_name = 'create_offer.html'
     model = JobOffer
