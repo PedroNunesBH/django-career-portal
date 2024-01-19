@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView
 from .models import JobOffer
+from .forms import CreateOfferJob
 
 
 class JobOffersList(ListView):
@@ -8,5 +9,8 @@ class JobOffersList(ListView):
     model = JobOffer
 
 
-class CreateOffer(CreateView):
-    pass
+class CreateOfferView(CreateView):
+    template_name = 'create_offer.html'
+    model = JobOffer
+    form_class = CreateOfferJob
+    success_url = 'job_list'

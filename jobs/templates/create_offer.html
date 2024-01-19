@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/create_offer.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <h2 class="create-offer-title">Insira uma Oferta de Emprego</h2>
+        <form class="create-offer-form" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Cadastrar</button>
+        </form>
+    </main>
+{% endblock %}
