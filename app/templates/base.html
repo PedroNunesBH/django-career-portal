@@ -16,11 +16,16 @@
         <nav class="nav-container">
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link" href="/">Sobre Nós</a>
-            <a class="nav-link" href="/">Ver Ofertas</a>
+            <a class="nav-link" href="/job_list">Ver Ofertas</a>
         </nav>
         <ul class="list-header">
-            <li><a class="list-header-link" href="/">Entrar</a></li>
-            <li><a class="list-header-link" href="/">Cadastrar</a></li>
+            {% if user.is_authenticated %}
+                <li><a class="list-header-link" href="/login">Minha Conta</a></li>
+                <li><a class="list-header-link" href="/register">Sair</a></li>
+            {% else %}
+                <li><a class="list-header-link" href="/login">Entrar</a></li>
+                <li><a class="list-header-link" href="/register">Cadastrar</a></li>
+            {% endif %}
         </ul>
     </header>
 
