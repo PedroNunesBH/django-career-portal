@@ -1,0 +1,26 @@
+.container-welcome {
+    display: grid;
+    background-color: #02a97f;
+    height: 400px;
+}
+
+.title-homepage, .description-homepage, .title3-homepage {
+    color: white;
+    margin: 30px 100px;
+}
+
+.search-homepage input {
+    font-size: 1.3rem;
+    margin-left: 100px;
+    width: 750px;
+    height: 50px;
+    padding: 10px;
+}
+
+.btn-form-search {
+    height: 75px;
+    padding: 10px;
+    width: 100px;
+    background-color: purple;
+    color: white;
+}

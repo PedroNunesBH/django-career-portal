@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, TemplateView
 from .models import JobOffer
 from .forms import CreateOfferJob
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+
+
+class HomePage(TemplateView):
+    template_name = 'homepage.html'
 
 
 class JobOffersList(ListView):

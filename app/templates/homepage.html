@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/homepage.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="container-welcome">
+            <h2 class="title-homepage">Bem Vindo ao EmpregosOn</h2>
+            <p class="description-homepage">São mais de 100.000 vagas esperando por você.</p>
+            <h3 class="title3-homepage">Encontre a sua vaga perfeita agora mesmo !</h3>
+            <form class="search-homepage" method="GET">
+                <input id="search-home" name="search-home" placeholder="Digite por uma vaga">
+                <button class="btn-form-search">OK</button>
+            </form>
+        </section>
+    </main>
+{% endblock %}
