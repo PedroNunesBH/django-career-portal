@@ -14,3 +14,7 @@ class CreateOfferView(CreateView):
     model = JobOffer
     form_class = CreateOfferJob
     success_url = 'job_list'
+    
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        return super().form_valid(form)
