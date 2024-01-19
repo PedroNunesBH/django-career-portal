@@ -28,5 +28,5 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('create_offer/', CreateOfferView.as_view(), name='create_offer'),
     path('logout/', logoutview, name='logout'),
-    path('detail_offer/<int:pk>', EditOffer.as_view(), name='detail_offer'),
+    path('update_offer/<int:pk>', EditOffer.as_view(), name='update_offer'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

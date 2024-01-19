@@ -31,7 +31,7 @@ class CreateOfferView(CreateView):
 
 
 class EditOffer(UpdateView):
-    template_name = 'detail_offer.html'
+    template_name = 'update_offer.html'
     model = JobOffer
     form_class = CreateOfferJob
     success_url = reverse_lazy('job_list')
