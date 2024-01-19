@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+{% endblock %}
+
 {% block content %}
     <main>
-        <h2>Faça Seu Login</h2>
-        <form class="login-form" method="POST">
-            {% csrf_token %}
-            {{ auth_form.as_p }}
+        <h2 class="login-title">Faça Seu Login</h2>
+        <div class="form-container">
+            <form class="login-form" method="POST">
+                {% csrf_token %}
+                {{ auth_form.as_p }}
 
-            <input type="submit" value="Entrar">
-        </form>
+                <button class="btn-login-form" type="submit">Entrar</button>
+            </form>
+        </div>
     </main>
 {% endblock %}

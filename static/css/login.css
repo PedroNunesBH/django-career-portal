@@ -1,0 +1,29 @@
+.login-title {
+    text-align: center;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 500px;
+    margin-left: 405px;
+    height: 300px;
+}
+
+.btn-login-form {
+    margin-left: 90px;
+    border: 2px solid white;
+    border-radius: 5px;
+    height: 30px;
+    width: 90px;
+    background-color: green;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.login-form input {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
