@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView
 from .models import JobOffer
 from .forms import CreateOfferJob
 from django.urls import reverse_lazy
@@ -35,3 +35,13 @@ class EditOffer(UpdateView):
     model = JobOffer
     form_class = CreateOfferJob
     success_url = reverse_lazy('job_list')
+
+
+class DetailOffer(DetailView):
+    template_name = 'detail_offer.html'
+    model = JobOffer
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['offer'] = context['object']
+        return context

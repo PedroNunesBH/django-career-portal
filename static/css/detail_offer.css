@@ -1,0 +1,26 @@
+.offer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(191, 190, 189);
+    width: 700px;
+}
+
+.p-offer {
+    margin: 3px;
+}
+
+.p-description {
+    margin-left: 10px;
+}
+
+.offer-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-detail-offer {
+    text-align: center;
+}

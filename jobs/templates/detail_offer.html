@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/detail_offer.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <h2 class="title-detail-offer">Saiba Mais</h2>
+        <section class="offer-detail-container">
+            <div class="offer-grid">
+                    <h3 class="offer-title">{{ offer.title }}</h3>
+                    <p class="p-offer">{{ offer.organization_name }}</p>
+                    <p class="p-offer">{{ offer.salary }}</p>
+                    <p class="p-offer"> {{ offer.location }}</p>
+                    <p class="p-offer"> {{ offer.publication_date }}</p>
+                    <p class="p-offer"> {{ offer.autor|capfirst }}</p>
+                    <p class="p-description"> {{ offer.description }}</p>
+            </div>
+        </section>
+    </main>
+{% endblock %}
