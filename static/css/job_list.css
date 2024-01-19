@@ -58,3 +58,11 @@ body {
     text-align: center;
     font-weight: 600;
 }
+
+.btn-search-job {
+    font-size: 1.3rem;
+    color: white;
+    background-color: green;
+    border: 2px solid white;
+    border-radius: 5px;
+}
