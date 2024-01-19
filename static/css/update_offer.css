@@ -1,0 +1,28 @@
+.update-offer-text {
+    text-align: center;
+}
+
+.update-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-form-offer input, textarea, label {
+    font-size: 1.1rem;
+    margin: 15px 30px;
+}
+
+.update-form-offer {
+    border: 2px solid black;
+}
+
+.btn-update-form {
+    margin: 20px 367.5px;
+    background-color: green;
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+}

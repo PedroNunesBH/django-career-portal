@@ -3,16 +3,18 @@
 {% block styles %}
     {{ block.super }}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static '/css/detail_offer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/update_offer.css' %}">
 {% endblock %}
 
 {% block content %}
     <main>
-        <h2>Edite a Oferta</h2>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form }}
-            <button>Atualizar</button>
-        </form>
+        <h2 class="update-offer-text">Edite a Oferta</h2>
+        <section class="update-form-container">
+            <form class="update-form-offer" method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <button class="btn-update-form">Atualizar</button>
+            </form>
+        </section>
     </main>
 {% endblock %}
