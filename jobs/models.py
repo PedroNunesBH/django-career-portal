@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class JobOffer(models.Model):
@@ -11,6 +12,7 @@ class JobOffer(models.Model):
     employment_type = models.CharField(max_length=100)
     salary = models.FloatField(default="Não informado")  # define que por padrão o campo é não informado
     organization_description = models.TextField()
+    autor = models.ForeignKey(User, on_delete=models.PROTECT, related_name='car_user', editable=False, default=1)
 
     def __str__(self):
         return self.title
