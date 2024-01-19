@@ -9,18 +9,20 @@
 {% block content %}
     <main>
         <h2 class="title-register">Crie sua Conta {{ request.user }}</h2>
-        <form class="register-form" method="POST">
-            {% csrf_token %}
-                <label class="label-register-form">Username : </label>
-                {{ form.username }}
-                {{ form.username.errors }}
-                <label class="label-register-form">Senha : </label>
-                {{ form.password1 }}
-                {{ form.password.errors }}
-                <label class="label-register-form">Confirmação da Senha : </label>
-                {{ form.password2 }}
-                {{ form.password2.errors }}
-                <button class="btn-register-form">Cadastrar</button>
-        </form>
+        <div class="register-form-container">
+            <form class="register-form" method="POST">
+                {% csrf_token %}
+                    <label class="label-register-form">Username : </label>
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                    <label class="label-register-form">Senha : </label>
+                    {{ form.password1 }}
+                    {{ form.password.errors }}
+                    <label class="label-register-form">Confirmação da Senha : </label>
+                    {{ form.password2 }}
+                    {{ form.password2.errors }}
+                    <button class="btn-register-form">Cadastrar</button>
+            </form>
+        </div>
         </main>
 {% endblock %}
