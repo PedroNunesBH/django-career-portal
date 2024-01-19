@@ -10,6 +10,11 @@
     <main>
         <h2 class="title-offer-page">Todas as Ofertas</h2>
         <section class="section-content">
+            <form class="offer-form-search" method="GET">
+                {% csrf_token %}
+                <input id="query-offer" name="search">
+                <button>Procurar</button>
+            </form>
         {% for offer in object_list %}
             <div class="offer-grid">
                 <h3 class="offer-title">{{ offer.title }}</h3>

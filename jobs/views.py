@@ -9,6 +9,14 @@ class JobOffersList(ListView):
     template_name = 'job_list.html'
     model = JobOffer
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search = self.request.GET.get('query')
+        if search:
+            queryset = queryset.filter(title__icontains=search)
+            return queryset
+        return queryset
+
 
 class CreateOfferView(CreateView):
     template_name = 'create_offer.html'

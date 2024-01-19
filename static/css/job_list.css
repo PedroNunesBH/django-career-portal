@@ -44,3 +44,12 @@ body {
     padding: 10px;
     margin: 15px;
 }
+
+.offer-form-search {
+    margin-left: 200px;
+    margin-bottom: 20px;
+}
+
+#query-offer {
+    font-size: 1.3rem;
+}
