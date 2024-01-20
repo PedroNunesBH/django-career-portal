@@ -57,6 +57,7 @@ class DeleteOffer(DeleteView):
     success_url = reverse_lazy('job_list')
 
 
+@method_decorator(login_required(), name='dispatch')
 class MyOffers(ListView):
     template_name = 'my_offers.html'
     model = JobOffer
