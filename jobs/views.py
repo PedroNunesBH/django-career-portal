@@ -34,6 +34,7 @@ class CreateOfferView(CreateView):
         return super().form_valid(form)
 
 
+@method_decorator(login_required(), name='dispatch')
 class EditOffer(UpdateView):
     template_name = 'update_offer.html'
     model = JobOffer
