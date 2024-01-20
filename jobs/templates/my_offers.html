@@ -25,7 +25,7 @@
                 <p class="p-offer"> {{ offer.autor|capfirst }}</p>
                 <p class="p-description"> {{ offer.description }}</p>
                 <div class="btn-joblist-container">
-                    <a class="btn-apply" href="/">Quero me candidatar</a>
+                    <a class="btn-apply" href="{% url 'delete_offer' offer.id %}">Deletar Oferta</a>
                     <a class="btn-edit" href="{% url 'update_offer' offer.id %}">Editar Oferta</a>
                 </div>
             </div>
