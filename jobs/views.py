@@ -31,6 +31,7 @@ class CreateOfferView(CreateView):
     
     def form_valid(self, form):
         form.instance.autor = self.request.user
+        form.instance.recruiter_email = self.request.user.email
         return super().form_valid(form)
 
 

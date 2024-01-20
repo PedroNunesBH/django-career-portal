@@ -13,6 +13,7 @@ class JobOffer(models.Model):
     salary = models.FloatField(default="Não informado")  # define que por padrão o campo é não informado
     organization_description = models.TextField()
     autor = models.ForeignKey(User, on_delete=models.PROTECT, related_name='car_user', editable=False, default=1)
+    recruiter_email = models.EmailField(editable=False)
 
     def __str__(self):
         return self.title
