@@ -51,6 +51,7 @@ class DetailOffer(DetailView):
         return context
 
 
+@method_decorator(login_required(), name='dispatch')
 class DeleteOffer(DeleteView):
     template_name = 'delete_offer.html'
     model = JobOffer
