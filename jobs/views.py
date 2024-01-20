@@ -55,3 +55,14 @@ class DeleteOffer(DeleteView):
     template_name = 'delete_offer.html'
     model = JobOffer
     success_url = reverse_lazy('job_list')
+
+
+class MyOffers(ListView):
+    template_name = 'my_offers.html'
+    model = JobOffer
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        user_id = self.request.user.id
+        queryset = queryset.filter(autor_id=user_id)
+        return queryset
