@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, TemplateView
 from .models import JobOffer
 from .forms import CreateOfferJob
@@ -58,6 +58,15 @@ class DeleteOffer(DeleteView):
     template_name = 'delete_offer.html'
     model = JobOffer
     success_url = reverse_lazy('job_list')
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()  # Captura o objeto a ser excluido
+        user_session = self.request.user  # Verifica o usuario que esta fazendo a requisicao
+        offer_user = self.object.autor  # Verifica o campo autor do objeto a ser excluido
+        if user_session == offer_user:  # verifica se o usuario da requisicao é o mesmo que criou o objeto
+            return super().get(request, *args, **kwargs)
+        else:
+            return redirect('job_list')
 
 
 @method_decorator(login_required(), name='dispatch')
