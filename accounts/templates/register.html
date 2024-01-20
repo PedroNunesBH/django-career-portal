@@ -12,7 +12,19 @@
         <div class="register-form-container">
             <form class="register-form" method="POST">
                 {% csrf_token %}
-                    <label class="label-register-form">Username : </label>
+                    <label class="label-register-form">Nome : </label>
+                    {{ form.name }}
+                    {{ form.name.errors }}
+                    <label class="label-register-form">Sobrenome : </label>
+                    {{ form.last_name }}
+                    {{ form.last_name.errors }}
+                    <label class="label-register-form">Profissão : </label>
+                    {{ form.profession }}
+                    {{ form.profession.errors }}
+                    <label class="label-register-form">Email : </label>
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                    <label class="label-register-form">Usuário : </label>
                     {{ form.username }}
                     {{ form.username.errors }}
                     <label class="label-register-form">Senha : </label>

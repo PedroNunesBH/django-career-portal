@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from .forms import UpgradeUserCreationForm
 
 
 def login_view(request):
@@ -26,7 +27,7 @@ class UserRegisterView(CreateView):
     template_name = 'register.html'
     model = User
     success_url = reverse_lazy('job_list')
-    form_class = UserCreationForm
+    form_class = UpgradeUserCreationForm
 
 
 def logoutview(request):
