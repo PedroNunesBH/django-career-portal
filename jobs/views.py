@@ -64,5 +64,9 @@ class MyOffers(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         user_id = self.request.user.id
+        search = self.request.GET.get('search', '')
+        if search:
+            queryset = queryset.filter(autor_id=user_id, title__icontains=search)  # Filtra os anuncios do usuario E que o titulo contem search
+            return queryset
         queryset = queryset.filter(autor_id=user_id)
         return queryset
