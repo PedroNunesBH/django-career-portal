@@ -1,7 +1,7 @@
 .container-welcome {
     display: grid;
     background-color: #02a97f;
-    height: 400px;
+    height: vh;
 }
 
 .title-homepage, .description-homepage, .title3-homepage {
@@ -9,7 +9,7 @@
     margin: 30px 100px;
 }
 
-.search-homepage input {
+.search input {
     font-size: 1.3rem;
     margin-left: 100px;
     width: 750px;
