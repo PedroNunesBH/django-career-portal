@@ -1,10 +1,10 @@
 .container-welcome {
     display: grid;
     background-color: #02a97f;
-    height: vh;
+    height: 530px;
 }
 
-.title-homepage, .description-homepage, .title3-homepage {
+.title-homepage, .title3-homepage {
     color: white;
     margin: 30px 100px;
 }
@@ -23,4 +23,10 @@
     width: 100px;
     background-color: purple;
     color: white;
+}
+
+.description-homepage {
+    color: white;
+    margin: 0px 100px;
+    font-weight: 600;
 }
