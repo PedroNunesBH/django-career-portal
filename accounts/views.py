@@ -17,7 +17,7 @@ def login_view(request):
             login(request, user)  # Realiza o login
             return redirect('job_list')  # Redireciona o usuario para a pagina de name cars_list
         else:
-            auth_form = AuthenticationForm()
+            auth_form = AuthenticationForm(data=request.POST)
     else:
         auth_form = AuthenticationForm()
     return render(request, "login.html", {'auth_form': auth_form})
