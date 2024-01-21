@@ -19,12 +19,11 @@
             <div class="offer-grid">
                 <h3 class="offer-title">{{ offer.title }}</h3>
                 <p class="p-offer"><strong>Nome da Empresa :</strong> {{ offer.organization_name }}</p>
-                <p class="p-offer"><strong>Salário :</strong> {{ offer.salary }}</p>
+                <p class="p-offer"><strong>Salário :</strong> R$ {{ offer.salary }}</p>
                 <p class="p-offer"><strong>Localização :</strong> {{ offer.location }}</p>
                 <p class="p-offer"><strong>Data da Publicação :</strong> {{ offer.publication_date }}</p>
                 <p class="p-offer"><strong>Usuário :</strong> {{ offer.autor|capfirst }}</p>
                 <p class="p-offer"><strong>Email do Recrutador :</strong> {{ offer.recruiter_email }}</p>
-                <p class="p-offer"><strong>Visualizações :</strong> {{ offer.number_of_views }}</p>
                 <p class="p-description"> {{ offer.description }}</p>
                 <div class="btn-joblist-container">
                     <p class="btn-status">Em aberto</p>

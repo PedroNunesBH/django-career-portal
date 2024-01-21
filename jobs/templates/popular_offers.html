@@ -23,6 +23,7 @@
                         <p class="p-description"> {{ offer.description }}</p>
                         <div class="btn-joblist-container">
                             <a class="btn-status" href="/">Em aberto</a>
+                            <a class="btn-detail" href="{% url 'detail_offer' offer.id %}">Ver Tudo</a>
                             <p class="email-text">Para se candidatar envie seu currículo para : {{ offer.recruiter_email }}</p>
                         </div>
                     </div>
