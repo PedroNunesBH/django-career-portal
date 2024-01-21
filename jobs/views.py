@@ -30,8 +30,8 @@ class CreateOfferView(CreateView):
     success_url = reverse_lazy('job_list')
     
     def form_valid(self, form):
-        form.instance.autor = self.request.user
-        form.instance.recruiter_email = self.request.user.email
+        form.instance.autor = self.request.user  # Preenche o campo autor do form com o username do usuario
+        form.instance.recruiter_email = self.request.user.email  # Preenche o campo com o email do usuario
         return super().form_valid(form)
 
 
@@ -41,6 +41,16 @@ class EditOffer(UpdateView):
     model = JobOffer
     form_class = CreateOfferJob
     success_url = reverse_lazy('job_list')
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        user_session = self.request.user
+        offer_user = self.object.autor
+        if user_session == offer_user:
+            return super().get(request, *args, **kwargs)
+        else:
+            return redirect('job_list')
+
 
 
 class DetailOffer(DetailView):
