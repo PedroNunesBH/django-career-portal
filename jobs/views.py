@@ -52,7 +52,6 @@ class EditOffer(UpdateView):
             return redirect('job_list')
 
 
-
 class DetailOffer(DetailView):
     template_name = 'detail_offer.html'
     model = JobOffer
@@ -93,3 +92,8 @@ class MyOffers(ListView):
             return queryset
         queryset = queryset.filter(autor_id=user_id)
         return queryset
+
+
+class PopularOffers(ListView):
+    template_name = 'popular_offers.html'
+    model = JobOffer

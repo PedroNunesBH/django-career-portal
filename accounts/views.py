@@ -15,7 +15,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)  # Realiza o login
-            return redirect('job_list')  # Redireciona o usuario para a pagina de name cars_list
+            return redirect('my_offers')  # Redireciona o usuario para a pagina de name my_offers
         else:
             auth_form = AuthenticationForm(data=request.POST)
     else:
