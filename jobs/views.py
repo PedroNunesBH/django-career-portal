@@ -61,6 +61,13 @@ class DetailOffer(DetailView):
         context['offer'] = context['object']
         return context
 
+    def get(self, request, *args, **kwargs):
+        offer = self.get_object()  # Capturando a offer da request
+        offer.number_of_views += 1  # Adiciona em number_of_views da offer 1 a cada get
+        offer.save()  # Salva no model
+        return super().get(request, *args, **kwargs)
+
+
 
 @method_decorator(login_required(), name='dispatch')
 class DeleteOffer(DeleteView):

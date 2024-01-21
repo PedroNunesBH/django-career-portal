@@ -14,6 +14,7 @@ class JobOffer(models.Model):
     organization_description = models.TextField()
     autor = models.ForeignKey(User, on_delete=models.PROTECT, related_name='car_user', editable=False, default=1)
     recruiter_email = models.EmailField(editable=False)
+    number_of_views = models.IntegerField(default=0, editable=False)
 
     def __str__(self):
         return self.title

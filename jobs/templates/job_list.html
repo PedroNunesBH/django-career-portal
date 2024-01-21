@@ -24,9 +24,11 @@
                 <p class="p-offer"><strong>Data da Publicação :</strong> {{ offer.publication_date }}</p>
                 <p class="p-offer"><strong>Usuário :</strong> {{ offer.autor|capfirst }}</p>
                 <p class="p-offer"><strong>Email do Recrutador :</strong> {{ offer.recruiter_email }}</p>
+                <p class="p-offer"><strong>Visualizações :</strong> {{ offer.number_of_views }}</p>
                 <p class="p-description"> {{ offer.description }}</p>
                 <div class="btn-joblist-container">
                     <a class="btn-status" href="/">Em aberto</a>
+                    <a class="btn-detail" href="/">Ver Tudo</a>
                     <p class="email-text">Para se candidatar envie seu currículo para : {{ offer.recruiter_email }}</p>
                 </div>
             </div>
