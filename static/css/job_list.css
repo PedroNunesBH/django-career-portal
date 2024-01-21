@@ -37,7 +37,7 @@ body {
     justify-content: center;
 }
 
-.btn-apply {
+.btn-status {
     display: inline-block;
     color: white;
     text-decoration: none;
@@ -67,16 +67,6 @@ body {
     background-color: green;
     border: 2px solid white;
     border-radius: 5px;
-}
-
-.btn-edit {
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    background-color: rgb(158, 0, 63);
-    width: 156px;
-    padding: 10px;
-    margin: 15px;
 }
 
 .btn-joblist-container {

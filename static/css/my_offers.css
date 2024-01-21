@@ -1,0 +1,19 @@
+.btn-edit {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: green;
+    width: 115px;
+    padding: 10px;
+    margin: 15px;
+}
+
+.btn-delete {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: red;
+    width: 115px;
+    padding: 10px;
+    margin: 15px;
+}
