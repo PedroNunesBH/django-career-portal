@@ -104,3 +104,8 @@ class MyOffers(ListView):
 class PopularOffers(ListView):
     template_name = 'popular_offers.html'
     model = JobOffer
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.order_by('-number_of_views')[0:10]  # Captura as 10 offers mais visualizadas
+        return queryset

@@ -37,7 +37,7 @@ body {
     justify-content: center;
 }
 
-.btn-status {
+.btn-status, .btn-detail {
     display: inline-block;
     color: white;
     text-decoration: none;

@@ -15,8 +15,8 @@
         <h1 class="title">EmpregosOn</h1>
         <nav class="nav-container">
             <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/job_list">Ver Ofertas</a>
-            <a class="nav-link" href="/">Em Alta</a>
+                <a class="nav-link" href="{% url 'job_list' %}">Ver Ofertas</a>
+            <a class="nav-link" href="{% url 'popular_offers' %}">Em Alta</a>
             {% if user.is_authenticated %}
                 <a class="nav-link" href="/create_offer">Inserir Oferta</a>
                 <a class="nav-link" href="/my_offers">Minhas Ofertas</a>

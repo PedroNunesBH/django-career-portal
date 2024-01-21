@@ -27,8 +27,8 @@
                 <p class="p-offer"><strong>Visualizações :</strong> {{ offer.number_of_views }}</p>
                 <p class="p-description"> {{ offer.description }}</p>
                 <div class="btn-joblist-container">
-                    <a class="btn-status" href="/">Em aberto</a>
-                    <a class="btn-detail" href="/">Ver Tudo</a>
+                    <p class="btn-status">Em aberto</p>
+                    <a class="btn-detail" href="{% url 'detail_offer' offer.id %}">Ver Tudo</a>
                     <p class="email-text">Para se candidatar envie seu currículo para : {{ offer.recruiter_email }}</p>
                 </div>
             </div>
