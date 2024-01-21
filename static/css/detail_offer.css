@@ -24,3 +24,20 @@
 .title-detail-offer {
     text-align: center;
 }
+
+.tag-description {
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+.offer-title, .p-offer, .p-description {
+    margin-left: 20px;
+}
+
+.offer-title {
+    color: blue;
+}
+
+.offer-detail-container {
+    margin-bottom: 50px;
+}
