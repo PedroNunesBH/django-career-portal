@@ -24,7 +24,6 @@
         </nav>
         <ul class="list-header">
             {% if user.is_authenticated %}
-                <li><a class="list-header-link" href="/login">Minha Conta</a></li>
                 <li><a class="list-header-link" href="/logout">Sair</a></li>
             {% else %}
                 <li><a class="list-header-link" href="/login">Entrar</a></li>

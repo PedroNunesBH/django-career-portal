@@ -8,29 +8,29 @@
 
 {% block content %}
     <main>
-        <h2 class="title-register">Crie sua Conta {{ request.user }}</h2>
+        <h2 class="title-register">Crie sua Conta </h2>
         <div class="register-form-container">
             <form class="register-form" method="POST">
                 {% csrf_token %}
-                    <label class="label-register-form">Nome : </label>
+                    <label class="label-register-form">Nome* : </label>
                     {{ form.name }}
                     {{ form.name.errors }}
-                    <label class="label-register-form">Sobrenome : </label>
+                    <label class="label-register-form">Sobrenome* : </label>
                     {{ form.last_name }}
                     {{ form.last_name.errors }}
-                    <label class="label-register-form">Profissão : </label>
+                    <label class="label-register-form">Profissão* : </label>
                     {{ form.profession }}
                     {{ form.profession.errors }}
-                    <label class="label-register-form">Email : </label>
+                    <label class="label-register-form">Email* : </label>
                     {{ form.email }}
                     {{ form.email.errors }}
-                    <label class="label-register-form">Usuário : </label>
+                    <label class="label-register-form">Usuário* : </label>
                     {{ form.username }}
                     {{ form.username.errors }}
-                    <label class="label-register-form">Senha : </label>
+                    <label class="label-register-form">Senha* : </label>
                     {{ form.password1 }}
                     {{ form.password.errors }}
-                    <label class="label-register-form">Confirmação da Senha : </label>
+                    <label class="label-register-form">Confirmação da Senha* : </label>
                     {{ form.password2 }}
                     {{ form.password2.errors }}
                     <button class="btn-register-form">Cadastrar</button>

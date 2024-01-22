@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class JobOffer(models.Model):
@@ -18,3 +19,11 @@ class JobOffer(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class JobListingCount(models.Model):
+    date_and_time = models.DateTimeField(default=timezone.now)  # Define como padrao a data e horario do momento
+    number_of_offers = models.IntegerField()
+
+    def __str__(self):
+        return self.number_of_offers

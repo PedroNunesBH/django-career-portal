@@ -22,12 +22,12 @@ class JobOffersList(ListView):
         return queryset
 
 
-@method_decorator(login_required(), name='dispatch')
+@method_decorator(login_required(), name='dispatch')  # Permite que apenas usuarios logados acessem a view
 class CreateOfferView(CreateView):
     template_name = 'create_offer.html'
     model = JobOffer
     form_class = CreateOfferJob
-    success_url = reverse_lazy('job_list')
+    success_url = reverse_lazy('my_offers')
     
     def form_valid(self, form):
         form.instance.autor = self.request.user  # Preenche o campo autor do form com o username do usuario
@@ -35,17 +35,17 @@ class CreateOfferView(CreateView):
         return super().form_valid(form)
 
 
-@method_decorator(login_required(), name='dispatch')
+@method_decorator(login_required(), name='dispatch')  # Permite que apenas usuarios logados acessem a view
 class EditOffer(UpdateView):
     template_name = 'update_offer.html'
     model = JobOffer
     form_class = CreateOfferJob
-    success_url = reverse_lazy('job_list')
+    success_url = reverse_lazy('my_offers')
 
     def get(self, request, *args, **kwargs):
-        self.object = self.get_object()
+        offer = self.get_object()
         user_session = self.request.user
-        offer_user = self.object.autor
+        offer_user = offer.autor
         if user_session == offer_user:
             return super().get(request, *args, **kwargs)
         else:
@@ -68,24 +68,23 @@ class DetailOffer(DetailView):
         return super().get(request, *args, **kwargs)
 
 
-
-@method_decorator(login_required(), name='dispatch')
+@method_decorator(login_required(), name='dispatch')  # Permite que apenas usuarios logados acessem a view
 class DeleteOffer(DeleteView):
     template_name = 'delete_offer.html'
     model = JobOffer
     success_url = reverse_lazy('job_list')
 
     def get(self, request, *args, **kwargs):
-        self.object = self.get_object()  # Captura o objeto a ser excluido
+        offer = self.get_object()  # Captura o objeto a ser excluido
         user_session = self.request.user  # Verifica o usuario que esta fazendo a requisicao
-        offer_user = self.object.autor  # Verifica o campo autor do objeto a ser excluido
+        offer_user = offer.autor  # Verifica o campo autor do objeto a ser excluido
         if user_session == offer_user:  # verifica se o usuario da requisicao é o mesmo que criou o objeto
             return super().get(request, *args, **kwargs)
         else:
             return redirect('job_list')
 
 
-@method_decorator(login_required(), name='dispatch')
+@method_decorator(login_required(), name='dispatch')  # Permite que apenas usuarios logados acessem a view
 class MyOffers(ListView):
     template_name = 'my_offers.html'
     model = JobOffer

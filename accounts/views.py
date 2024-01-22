@@ -26,7 +26,7 @@ def login_view(request):
 class UserRegisterView(CreateView):
     template_name = 'register.html'
     model = User
-    success_url = reverse_lazy('job_list')
+    success_url = reverse_lazy('login')
     form_class = UpgradeUserCreationForm
 
 
