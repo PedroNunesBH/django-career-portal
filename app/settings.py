@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from environment_variables import email, senha  # Importação das variaveis de ambiente
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -132,3 +133,10 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # servidor do email a ser utilizado
+EMAIL_PORT = 587  # porta do servidor
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = email  # endereco de email do remetente
+EMAIL_HOST_PASSWORD = senha  # senha do endereco de email do remetente
