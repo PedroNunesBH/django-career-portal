@@ -13,6 +13,7 @@
             <form class="login-form" method="POST">
                 {% csrf_token %}
                 {{ auth_form.as_p }}
+                <a class="link-password-recovery" href="{% url 'password_reset' %}">Esqueci Minha Senha</a>
                 <button class="btn-login-form" type="submit">Entrar</button>
             </form>
         </div>

@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .forms import UpgradeUserCreationForm
+from django.contrib.auth.views import PasswordResetView
 
 
 def login_view(request):
@@ -33,3 +34,9 @@ class UserRegisterView(CreateView):
 def logoutview(request):
     logout(request)
     return redirect('job_list')
+
+
+class CustomizedPasswordResetView(PasswordResetView):
+    template_name = 'password_reset_form.html'  # Define o template da pagina para inserir email para recuperação
+    email_template_name = 'password_reset_email.html'  # Define o conteúdo do email
+    subject_template_name = 'recovery_email_subject.txt'  # Define o assunto do email
