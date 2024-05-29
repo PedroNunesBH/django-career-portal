@@ -5,3 +5,9 @@
 .create-offer-form {
     margin-left: 500px;
 }
+
+.btn {
+    background-color: green;
+    color: white;
+    border: 2px radius green;
+}
