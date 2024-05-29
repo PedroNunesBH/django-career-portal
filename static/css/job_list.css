@@ -12,6 +12,7 @@ body {
 }
 
 .offer-title {
+    text-align: center;
     color: blue;
     margin-left: 10px;
 }
@@ -42,7 +43,7 @@ body {
     color: white;
     text-decoration: none;
     background-color: green;
-    width: 80px;
+    width: 100px;
     padding: 10px;
     margin: 15px;
 }

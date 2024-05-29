@@ -12,6 +12,7 @@ class CreateOfferJob(ModelForm):
         labels = {
             'title': 'Título',
             'description': 'Descrição',
+            'organization_name': 'Nome da Empresa',
             'location': 'Localização',
             'offer_requirements': 'Requisitos da Oferta',
             'employment_type': 'Tipo de Emprego',
