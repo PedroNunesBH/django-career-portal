@@ -11,7 +11,7 @@ class JobOffer(models.Model):
     publication_date = models.DateTimeField(auto_now_add=True)  # Adicionará automaticamente a data e hora ao campo
     offer_requirements = models.CharField(max_length=300)
     employment_type = models.CharField(max_length=100)
-    salary = models.FloatField(default="Não informado")  # define que por padrão o campo é não informado
+    salary = models.FloatField(blank=True, null=True)  # define que por padrão o campo é não informado
     organization_description = models.TextField()
     autor = models.ForeignKey(User, on_delete=models.PROTECT, related_name='car_user', editable=False, default=1)
     recruiter_email = models.EmailField(editable=False)
@@ -26,4 +26,4 @@ class JobListingCount(models.Model):
     number_of_offers = models.IntegerField()
 
     def __str__(self):
-        return self.number_of_offers
+        return str(self.number_of_offers)

@@ -11,7 +11,7 @@
         <h2 class="title-offer-page">Todas as Ofertas</h2>
         <section class="section-content">
             <form class="offer-form-search" method="GET">
-                <input id="query-offer" name="search">
+                <input id="query-offer" name="search", value="{{ search }}">
                 <button class="btn-search-job">Procurar</button>
             </form>
     {% if object_list %}

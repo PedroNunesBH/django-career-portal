@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
+from django.db.models import Q
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, TemplateView
-from .models import JobOffer
-from .forms import CreateOfferJob
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from .models import JobOffer
+from .forms import CreateOfferJob
 
 
 class HomePage(TemplateView):
@@ -18,8 +19,15 @@ class JobOffersList(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         search = self.request.GET.get('search', '')
-        queryset = queryset.filter(title__icontains=search)
+        queryset = queryset.filter(Q(title__icontains=search) |
+                                   Q(offer_requirements__icontains=search))
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context["search"] = self.request.GET.get("search", "")
+        print(self.request.GET)
+        return context
 
 
 @method_decorator(login_required(), name='dispatch')  # Permite que apenas usuarios logados acessem a view
@@ -43,7 +51,7 @@ class EditOffer(UpdateView):
     success_url = reverse_lazy('my_offers')
 
     def get(self, request, *args, **kwargs):
-        offer = self.get_object()
+        offer = self.get_object()  # Captura o objeto
         user_session = self.request.user
         offer_user = offer.autor
         if user_session == offer_user:
