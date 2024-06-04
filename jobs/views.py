@@ -19,8 +19,8 @@ class JobOffersList(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         search = self.request.GET.get('search', '')
-        queryset = queryset.filter(Q(title__icontains=search) |
-                                   Q(offer_requirements__icontains=search))
+        queryset = queryset.filter((Q(title__icontains=search) |
+                                    Q(offer_requirements__icontains=search)) & Q(allowed=1))
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -102,9 +102,9 @@ class MyOffers(ListView):
         user_id = self.request.user.id
         search = self.request.GET.get('search', '')
         if search:
-            queryset = queryset.filter(autor_id=user_id, title__icontains=search)  # Filtra os anuncios do usuario E que o titulo contem search
+            queryset = queryset.filter(autor_id=user_id, title__icontains=search, allowed=1)  # Filtra os anuncios do usuario E que o titulo contem search
             return queryset
-        queryset = queryset.filter(autor_id=user_id)
+        queryset = queryset.filter(autor_id=user_id, allowed=1)
         return queryset
 
 
@@ -114,5 +114,5 @@ class PopularOffers(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.order_by('-number_of_views')[0:10]  # Captura as 10 offers mais visualizadas
+        queryset = JobOffer.objects.filter(allowed=1).order_by('number_of_views')[0:10]  # Captura as 10 offers mais visualizadas
         return queryset

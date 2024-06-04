@@ -24,11 +24,16 @@ class TestMaxLengthFieldsValidation(TestBase):
             self.job_offer.full_clean()
 
 
-class TestDefaultField(TestBase):
+class TestDefaultFields(TestBase):
     def test_number_of_views_field_default_value(self):
         self.offer = self.create_object_job_offer()
         numbers_of_view_default = JobOffer._meta.get_field("number_of_views").default  # Acessa o valor default do campo
         self.assertEqual(numbers_of_view_default, 0)
+
+    def test_allowed_field_default_value(self):
+        default_allowed = JobOffer._meta.get_field("allowed").default  # Valor default do campo allowed
+        self.offer = self.create_object_job_offer()
+        self.assertEqual(self.offer.allowed, default_allowed)
 
 
 class TestJobOfferStrRepresentation(TestBase):
