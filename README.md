@@ -29,28 +29,39 @@ Certifique-se de ter os seguintes pré-requisitos instalados em sua máquina:
 
 Para instalar todas as dependências necessárias para o funcionamento correto do projeto(especificadas no requirements.txt) utilize o comando:
 
-**pip install -r requirements.txt**
+```bash
+pip install -r requirements.txt
+```
 
 ## Criando um Super Usuário(Administrador)
 
 Para configurar um administrador no Django,no terminal,utilize o seguinte comando:
 
-**python manage.py createsuperuser**
+```bash
+python manage.py createsuperuser
+```
 
 Após isso siga os passos descritos no terminal para configurar o mesmo.
+
 ## Configuração do Banco de Dados 
 
 Para configurar o banco de dados do projeto são necessários dois comandos na seguinte ordem:
 
-**1 - python manage.py makemigrations**
+```bash
+python manage.py makemigrations
+```
 
-**2 - python manage.py migrate**
+```bash
+python manage.py migrate
+```
 
 ## Rodando o Servidor Local
 
 Para iniciar o servidor de desenvolvimento do Django em sua máquina utilize o seguinte comando:
 
-**python manage.py runserver**
+```bash
+python manage.py runserver
+```
 
 ## Docker
 
