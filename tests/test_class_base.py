@@ -16,17 +16,18 @@ class TestBase(TestCase):
                                 organization_description="Descrição da organização.",
                                 autor=None,
                                 recruiter_email="recruiter@example.com",
-                                number_of_views=0):
+                                number_of_views=0,
+                                allowed=0):
 
         if autor is None:
-            autor = User.objects.create_user(username='testuser', email='test@example.com', password='testpassword')
+            autor = User.objects.create_superuser(username='testuser', email='test@example.com', password='testpassword')
 
         job_offer = JobOffer.objects.create(title=title, description=description, organization_name=organization_name,
                                        location=location, publication_date=publication_date,
                                        offer_requirements=offer_requirements, employment_type=employment_type, organization_description=organization_description, autor=autor,
-                                       recruiter_email=autor.email)
+                                       recruiter_email=autor.email, allowed=allowed)
 
         return job_offer
 
     def create_test_user(self, username="teste", password="teste"):
-        return User.objects.create_user(username=username, password=password)
+        return User.objects.create_superuser(username=username, password=password)

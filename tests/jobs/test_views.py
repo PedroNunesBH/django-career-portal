@@ -86,8 +86,8 @@ class TestStatusCodeWhenNotFound(TestBase):
 class TestMyOffersSearch(TestBase):
     def test_my_offers_search(self):
         self.user = self.create_test_user(username="testando", password="testando22")
-        self.offer = self.create_object_job_offer(title="Desenvolvedor Python", autor=self.user)
-        self.offer = self.create_object_job_offer(title="Desenvolvedor JavaScript")
+        self.offer = self.create_object_job_offer(title="Desenvolvedor Python", autor=self.user, allowed=1)
+        self.offer = self.create_object_job_offer(title="Desenvolvedor JavaScript", allowed=1)
         self.client.login(username="testuser", password="testpassword")
         response = self.client.get(reverse("my_offers"), {"search": "JavaScript"})
         self.assertContains(response, "Desenvolvedor JavaScript")
@@ -179,3 +179,16 @@ class TestViewsRedirectForSuccessUrl(TestBase):
         self.client.login(username=self.user.username, password=user_password)
         response = self.client.post(reverse("create_offer"), data=self.offer_data, follow=True)
         self.assertRedirects(response, success_url)
+
+
+class TestViewsDontLoadsOffersWithAllowedZero(TestBase):
+    def setUp(self):
+        self.offer = self.create_object_job_offer(title="Dev Salesforce", allowed=0)  # Cria uma oferta com allowed zero
+        self.client.login(username="testuser", password="testpassword")
+    @parameterized.expand([
+        (reverse("job_list")),
+        (reverse("my_offers")),
+        (reverse("popular_offers"))])
+    def test_views_dont_loads_offers_with_allowed_zero(self, url):
+        response = self.client.get(url)
+        self.assertNotContains(response, "Dev Salesforce")
