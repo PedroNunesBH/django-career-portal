@@ -15,6 +15,7 @@ class HomePage(TemplateView):
 class JobOffersList(ListView):
     template_name = 'job_list.html'
     model = JobOffer
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = super().get_queryset()

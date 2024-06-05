@@ -79,3 +79,15 @@ body {
     font-weight: 600;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    margin-bottom: 40px;
+}
+
+.page-link {
+    text-decoration: none;
+    background: grey;
+    color: white;
+}
