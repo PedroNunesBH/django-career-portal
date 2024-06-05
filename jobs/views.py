@@ -26,7 +26,8 @@ class JobOffersList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         context["search"] = self.request.GET.get("search", "")
-        print(self.request.GET)
+        queryset = self.get_queryset()
+        context["total_offers_found"] = queryset.count()
         return context
 
 

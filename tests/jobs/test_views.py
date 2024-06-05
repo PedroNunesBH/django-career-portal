@@ -192,3 +192,12 @@ class TestViewsDontLoadsOffersWithAllowedZero(TestBase):
     def test_views_dont_loads_offers_with_allowed_zero(self, url):
         response = self.client.get(url)
         self.assertNotContains(response, "Dev Salesforce")
+
+
+class TestJobOffersListTotalOffers(TestBase):
+    def test_job_offers_view_return_correct_total_of_offers(self):
+        self.offer = self.create_object_job_offer(allowed=1)
+        response = self.client.get(reverse("job_list"))
+        offers_returned = response.context["object_list"].count()  # Total de ofertas retornadas pelo queryset da view
+        total_offers_found = response.context["total_offers_found"]  # Valor da variavel total_offers_found
+        self.assertEqual(offers_returned, total_offers_found)

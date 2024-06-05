@@ -14,6 +14,7 @@
                 <input id="query-offer" name="search", value="{{ search }}">
                 <button class="btn-search-job">Procurar</button>
             </form>
+            <p class="total-of-offers">{{ total_offers_found }} vaga(s)</p>
     {% if object_list %}
         {% for offer in object_list %}
             <div class="offer-grid">
