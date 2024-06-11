@@ -18,12 +18,13 @@ class JobOffersList(ListView):
     template_name = 'job_list.html'
     model = JobOffer
     paginate_by = 5
+    ordering = ["-publication_date"]
 
     def get_queryset(self):
         queryset = super().get_queryset()
         search = self.request.GET.get('search', '')
         queryset = queryset.filter((Q(title__icontains=search) |
-                                    Q(offer_requirements__icontains=search)) & Q(allowed=1))
+                                        Q(offer_requirements__icontains=search)) & Q(allowed=1))
         return queryset
 
     def get_context_data(self, **kwargs):
