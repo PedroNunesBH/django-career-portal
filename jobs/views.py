@@ -101,6 +101,7 @@ class DeleteOffer(DeleteView):
 class MyOffers(ListView):
     template_name = 'my_offers.html'
     model = JobOffer
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -116,6 +117,7 @@ class MyOffers(ListView):
 class PopularOffers(ListView):
     template_name = 'popular_offers.html'
     model = JobOffer
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = super().get_queryset()

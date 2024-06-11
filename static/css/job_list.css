@@ -88,6 +88,11 @@ body {
 
 .page-link {
     text-decoration: none;
+    padding: 10px;
     background: grey;
     color: white;
+}
+
+.page-link-active {
+    background: pink;
 }
