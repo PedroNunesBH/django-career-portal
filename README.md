@@ -33,6 +33,21 @@ Para instalar todas as dependências necessárias para o funcionamento correto d
 pip install -r requirements.txt
 ```
 
+### Configuração do Ambiente
+
+Este projeto utiliza variáveis de ambiente para configuração. Para configurar seu ambiente local:
+
+1. Renomeie o arquivo `.env-example` para `.env` executando o seguinte comando no terminal :
+   ```sh
+   cp .env-example .env
+
+2. Abra o arquivo .env e substitua as variáveis de exemplo pelos valores reais, seguindo as instruções fornecidas no próprio arquivo.
+
+| Variável  | Descrição                                        | Exemplo                    |
+|-----------|--------------------------------------------------|----------------------------|
+| `EMAIL`   | O endereço de email usado para envio de emails.  | `meu_email@dominio.com`    |
+| `SENHA`   | A senha do endereço de email especificado.       | `minha_senha_segura`       |
+
 ## Criando um Super Usuário(Administrador)
 
 Para configurar um administrador no Django,no terminal,utilize o seguinte comando:
