@@ -24,6 +24,9 @@
                 <p class="p-offer"><strong>Localização :</strong>  {{ offer.location }}</p>
                 <p class="p-offer"><strong>Data da Publicação :</strong>  {{ offer.publication_date }}</p>
                 <p class="p-offer"><strong>Usuário :</strong>  {{ offer.autor|capfirst }}</p>
+                {% if offer.company_site is not None or offer.company_site == '' %}
+                    <a class="p-offer" href="{{ offer.company_site }}">Site da Empresa</a>
+                {% endif %}
                 <p class="p-description"> {{ offer.description }}</p>
 
                 <div class="btn-joblist-container">

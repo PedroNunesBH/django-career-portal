@@ -7,7 +7,7 @@ class CreateOfferJob(ModelForm):
     class Meta:
         model = JobOffer
         fields = ['title', 'description', 'organization_name', 'location', 'offer_requirements',
-                  'employment_type', 'salary', 'organization_description']
+                  'employment_type', 'salary', 'organization_description', "company_site"]
 
         labels = {
             'title': 'Título',
@@ -17,5 +17,6 @@ class CreateOfferJob(ModelForm):
             'offer_requirements': 'Requisitos da Oferta',
             'employment_type': 'Tipo de Emprego',
             'salary': 'Salário',
-            'organization_description': 'Descrição da Organização'
+            'organization_description': 'Descrição da Organização',
+            'company_site': "Site da Empresa"
         }
