@@ -201,3 +201,15 @@ class TestJobOffersListTotalOffers(TestBase):
         offers_returned = response.context["object_list"].count()  # Total de ofertas retornadas pelo queryset da view
         total_offers_found = response.context["total_offers_found"]  # Valor da variavel total_offers_found
         self.assertEqual(offers_returned, total_offers_found)
+
+
+class TestPopularOffersQuerysetOrder(TestBase):
+    def test_popular_offers_queryset_order(self):
+        user = self.create_test_user("testando", "testando")
+        for i in range(3):
+            offer = self.create_object_job_offer(title=f"Desenvolvedor {i}", autor=user, allowed=1)
+            offer.number_of_views = i  # Atribui ao numero de views da oferta o valor de i
+            offer.save()
+        response = self.client.get(reverse("popular_offers"))
+        queryset = response.context["joboffer_list"]
+        self.assertEqual(queryset[0].title,  "Desenvolvedor 2")  # Verifica se o 1 do queryset é o desenvolvedor2
