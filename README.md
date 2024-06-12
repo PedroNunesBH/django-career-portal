@@ -32,7 +32,6 @@ Para instalar todas as dependências necessárias para o funcionamento correto d
 ```bash
 pip install -r requirements.txt
 ```
-
 ### Configuração do Ambiente
 
 Este projeto utiliza variáveis de ambiente para configuração. Para configurar seu ambiente local:
