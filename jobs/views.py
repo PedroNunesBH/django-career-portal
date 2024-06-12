@@ -121,5 +121,5 @@ class PopularOffers(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = JobOffer.objects.filter(allowed=1).order_by('number_of_views')[0:10]  # Captura as 10 offers mais visualizadas
+        queryset = JobOffer.objects.filter(allowed=1).order_by('-number_of_views')[0:10]  # Captura as 10 offers mais visualizadas
         return queryset
