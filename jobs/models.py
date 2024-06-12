@@ -16,6 +16,7 @@ class JobOffer(models.Model):
     autor = models.ForeignKey(User, on_delete=models.PROTECT, related_name='car_user', editable=False, default=1)
     recruiter_email = models.EmailField(editable=False)
     number_of_views = models.IntegerField(default=0, editable=False)
+    company_site = models.URLField(max_length=300, blank=True, null=True)
     allowed = models.BooleanField(default=0)  # Controle de permissao para as vagas
 
     def __str__(self):
