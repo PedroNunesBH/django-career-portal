@@ -10,30 +10,8 @@
     <main>
         <h2 class="title-offer-page">Mais Vistas Atualmente</h2>
         <section class="section-content">
-            {% if object_list %}
-                {% for offer in object_list %}
-                    <div class="offer-grid">
-                        <h3 class="offer-title">{{ offer.title }}</h3>
-                        <p class="p-offer"><strong>Nome da Empresa</strong> : {{ offer.organization_name }}</p>
-                        <p class="p-offer"><strong>Salário :</strong> {{ offer.salary }}</p>
-                        <p class="p-offer"><strong>Localização :</strong> {{ offer.location }}</p>
-                        <p class="p-offer"><strong>Data da Publicação :</strong> {{ offer.publication_date }}</p>
-                        <p class="p-offer"><strong>Usuário :</strong> {{ offer.autor|capfirst }}</p>
-                        <p class="p-offer"><strong>Email do Recrutador :</strong> {{ offer.recruiter_email }}</p>
-                        {% if offer.company_site is not None or offer.company_site == '' %}
-                            <a class="p-offer" href="{{ offer.company_site }}">Site da Empresa</a>
-                        {% endif %}
-                        <p class="p-description"> {{ offer.description }}</p>
-                        <div class="btn-joblist-container">
-                            <a class="btn-status" href="/">Em aberto</a>
-                            <a class="btn-detail" href="{% url 'detail_offer' offer.id %}">Ver Tudo</a>
-                            <p class="email-text">Para se candidatar envie seu currículo para : {{ offer.recruiter_email }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% else %}
-                    <p class="job-list-advice-null">Nenhum resultado encontrado.</p>
-            {% endif %}
+
+            {% include 'partials/offer_grid.html' %}
 
             {% include 'partials/pagination.html' %}
 
