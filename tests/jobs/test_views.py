@@ -213,3 +213,21 @@ class TestPopularOffersQuerysetOrder(TestBase):
         response = self.client.get(reverse("popular_offers"))
         queryset = response.context["joboffer_list"]
         self.assertEqual(queryset[0].title,  "Desenvolvedor 2")  # Verifica se o 1 do queryset é o desenvolvedor2
+
+
+class TestViewsPagination(TestBase):
+    def setUp(self):
+        autor_password = "testando"
+        self.user = self.create_test_user("testando", password=autor_password)
+        for i in range(10):
+            self.offer = self.create_object_job_offer(title=f"Desenvolvedor {i}", autor=self.user, allowed=1)
+        self.client.login(username=self.user.username, password=autor_password)
+    @parameterized.expand([
+        (reverse("job_list")),
+        (reverse("my_offers")),
+        (reverse("popular_offers"))
+    ])
+    def test_if_pagination_in_views_is_working_correct(self, url):
+        response = self.client.get(url)
+        paginator = response.context["paginator"]
+        self.assertEqual(paginator.num_pages, 2)
