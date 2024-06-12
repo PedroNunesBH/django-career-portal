@@ -40,7 +40,7 @@
             <p class="job-list-advice-null">Nenhum resultado encontrado.</p>
     {% endif %}
         </section>
-
+    {% if paginator.num_pages > 1 %}
         <div class="pagination">
             <span class="step-links">
                 {% if page_obj.has_previous %}
@@ -52,6 +52,6 @@
                 {% endif %}
             </span>
         </div>
-
+    {% endif %}
     </main>
 {% endblock %}
